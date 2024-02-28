@@ -19,9 +19,14 @@ INSERT INTO posts (title, user_id) VALUES ('monir er sathe postgre sikhtesi', 1)
 
 SELECT * from posts
 
+
 SELECT posts.id, posts.title, users.name AS posted_by
 FROM posts
 JOIN users ON posts.user_id = users.id;
+
+SELECT posts.id, posts.title, users.name AS posted_by
+FROM posts
+LEFT JOIN users ON posts.user_id = users.id;
 
 ALTER TABLE users ALTER COLUMN name SET NOT NULL;
 ALTER TABLE users ALTER COLUMN age SET NOT NULL;
@@ -37,4 +42,8 @@ DELETE from users
   WHERE id = 5;
 
 INSERT INTO users (name, age, email) VALUES ('Test person', 29, 'test@gmail.com');
+
+INSERT into posts (title, user_id) VALUES ('Ami kono user na, huda post', NULL );
+
+SELECT * from posts
 
